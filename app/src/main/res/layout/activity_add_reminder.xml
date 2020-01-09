@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#fff6ee"
+    android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="148dp"
+
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:id="@+id/add_reminder_layout_top"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:id="@+id/reminder_title"
+            android:layout_marginLeft="72dp"
+            android:hint="Reminder"
+            android:textSize="25dp"
+            android:lines="4"
+            android:minLines="4"
+            android:gravity="left|top"
+            android:layout_marginRight="16dp"
+            android:textColor="#FFFFFF"
+            android:scrollHorizontally="false"
+            android:textColorHint="#FFFFFF"
+            android:inputType="textCapWords|textMultiLine"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_below="@id/add_reminder_layout_top"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:layout_marginTop="8dp"
+                android:text="Details"
+                android:id="@+id/details"
+                android:textSize="25dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="72dp"
+                android:textColor="#000000"/>
+
+            <RelativeLayout
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:onClick="setDate">
+
+                <ImageView
+                    android:id="@+id/date_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="32dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cal"
+                    android:layout_centerVertical="true"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/date_icon"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/date_text"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp"
+                        android:text="Date"/>
+                    <TextView
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/set_date"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:onClick="setTime">
+
+                <ImageView
+                    android:id="@+id/time_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/clock1" />
+
+                <LinearLayout
+                    android:layout_width="313dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/time_icon"
+                    android:layout_below="@id/set_date"
+                    android:orientation="vertical"
+                    tools:ignore="NotSibling">
+
+                    <TextView
+                        android:id="@+id/time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/set_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/repeat"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+
+                >
+
+                <ImageView
+                    android:id="@+id/repeat_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/repeat" />
+
+                <LinearLayout
+                    android:layout_width="313dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/repeat_icon"
+                    android:layout_below="@id/set_time"
+                    android:orientation="vertical"
+                    tools:ignore="NotSibling">
+
+                    <TextView
+                        android:id="@+id/repeat_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Repeat"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/set_repeat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/repeat_switch"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="16dp"
+                    android:onClick="onSwitchRepeat"
+                    android:checked="true"
+                    android:textOn="On"
+                    android:textOff="Off"/>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/repeatNo"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:onClick="setRepeatNo">
+
+                <ImageView
+                    android:id="@+id/repeatNo_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/no" />
+
+                <LinearLayout
+                    android:layout_width="313dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/repeatNo_icon"
+                    android:layout_below="@id/set_repeat"
+                    android:orientation="vertical"
+                    tools:ignore="NotSibling">
+
+                    <TextView
+                        android:id="@+id/repeatNo_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Repetition Interval"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/set_repeatNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/repeatType"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:onClick="setRepeatType">
+
+                <ImageView
+                    android:id="@+id/repeatType_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="32dp"
+                    android:src="@drawable/list" />
+
+                <LinearLayout
+                    android:layout_width="313dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/repeatType_icon"
+                    android:layout_below="@id/set_repeatNo"
+                    android:orientation="vertical"
+                    tools:ignore="NotSibling">
+
+                    <TextView
+                        android:id="@+id/repeatType_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Type of repetitions"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/set_repeatType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/design_default_color_primary_dark"
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/add_reminder_layout_top"
+        android:background="#FFFFFF"
+        />
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/starred1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="selectFab1"
+        android:scaleType="centerCrop"
+        app:fab_colorNormal="@color/colorAccent"
+        app:fab_colorPressed="@color/colorPrimary"
+        app:fab_icon="@drawable/plus"
+        app:fabSize="normal"
+        android:layout_marginLeft="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="160dp"
+        app:fab_size="normal" />
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/starred2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="selectFab1"
+        android:scaleType="centerCrop"
+        app:fab_colorNormal="@color/cardview_light_background"
+        app:fab_colorPressed="@color/colorPrimary"
+        app:fab_icon="@drawable/plus"
+        app:fabSize="normal"
+        android:layout_marginLeft="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="160dp"
+        app:fab_size="normal" />
+</RelativeLayout>
